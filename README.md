@@ -1,18 +1,56 @@
-# Django 1.9 Skeleton
+# FineAnts
 
-This is a Django Skeleton to start a new Project nearly from scratch.
+```bash
+        |     |
+         \   /
+          \_/
+     __   /^\   __
+    '  `. \_/ ,'  `
+         \/ \/     
+    _,--./| |\.--._  
+ _,'   _.-\_/-._   `._
+      |   / \   |
+      |  /   \  |
+     /   |   |   \
+   -'    \___/    `-
+```
 
-It contains the polls app from the official Django tutorial and I use a simple Bootstrap Theme.
+## Installation
 
-Featuring:
-* Django 1.9
-* User registration and authentication in the frontend
-* Bootstrap 3.3.6
-* Bootstrap Theme *Paper*
-* Fontawesome Icons 4.6.0
+*This is a python3 project.*
 
+Set up a new virtualenv for this project:
 
-## Change your Secret Key
-I recognize several people cloning this repository. Please do not forget to change `SECRET_KEY` in your `settings.py` file.
+```bash
+$ mkvirtualenv --python=/usr/bin/python3 FineAnts
+```
 
-Clone / Fork it and have fun :-)
+and install Django:
+
+```bash
+$ workon FineAnts
+$ pip install -r requirements.txt
+```
+
+### Initialize new database
+Start the server to create an empty database and migrate the Django models into the newly created database:
+
+```bash
+$ python manage.py runserver
+# STRG + C to kill the server
+$ python manage.py migrate
+```
+
+#### Create superuser
+Create a superuser (= administrator) for your database:
+
+```bash
+$ python manage.py createsuperuser
+```
+
+### Start the application
+The steps above are only necessary, if you have not set up your own database yet. Start the integrated webserver this way:
+
+```bash
+$ python manage.py runserver
+```
