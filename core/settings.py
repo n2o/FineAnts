@@ -36,6 +36,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+
+    # 3rd Party
+
+    # Own Apps
+    'fineants',
     'polls',
     'login',
 )
