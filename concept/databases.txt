@@ -1,0 +1,45 @@
+Tabelle: Namen
+N-ID (integer, primary, auto-increment, non-null)
+Name (string, non-null)
+
+Tabelle: Transaktionen
+T-ID (integer, primary, auto-increment, non-null)
+Zahler (integer, referenz auf N-ID, non-null)
+Wert (integer, non-null)
+Titel (string, non-null)
+Datum (date, non-null)
+
+Tabelle: Schuldner
+Transaktion (integer, referenz auf T-ID, non-null)
+Schuldner (integer, referenz auf N-ID, non-null)
+Wert (integer, non-null)
+
+
+Beispielszenario:
+
+Tabelle: Namen
+0 Andre
+1 Christian
+
+Tabelle: Transaktionen
+0 0 10 "Eis"                 "Montag"
+1 1  5 "Schulden begleichen" "Dienstag"
+
+Tabelle: Schuldner
+0 0 5
+0 1 5
+1 0 5
+1 1 0
+
+Kreuztabelle von Schuldner, Transaktionen und Namen (sehr sprachlich):
+Andre schuldet Andre 5 Euro für "Eis" am "Montag"
+Raphael schuldet Andre 5 Euro für "Eis" am "Montag"
+Andre schuldet Raphael 5 Euro für "Schulden begleichen" am "Dienstag"
+Raphael schuldet Raphael 0 Euro für "Schulden begleichen" am "Dienstag"
+
+Kreuztabelle nach Bereinigung von gleichen Namen:
+Raphael schuldet Andre 5 Euro für "Eis" am "Montag"
+Andre schuldet Raphael 5 Euro für "Schulden begleichen" am "Dienstag"
+
+Kreuztabelle nach Bereinigung durch Aufsummieren:
+(leer)
