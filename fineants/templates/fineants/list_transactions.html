@@ -39,7 +39,7 @@
         {% if user.is_superuser %}
           <p class="text-muted">
             <a href="{% url 'admin:index' %}fineants/transaction/{{ transaction.id }}/change" class="text-muted">bearbeiten</a>
-            <a href="{% url 'admin:index' %}fineants/transaction/{{ entry.id }}/delete" class="text-muted">löschen</a>
+            <a href="{% url 'admin:index' %}fineants/transaction/{{ transaction.id }}/delete" class="text-muted">löschen</a>
           </p>
         {% endif %}
       </div>
@@ -49,9 +49,10 @@
       Bisher wurden keine Transaktionen eingetragen. Möchtest du das <a href="{% url 'admin:index' %}fineants/transaction/add">ändern</a>?
     </p>
   {% endfor %}
-
-  <p>
-    Neue Transaktion <a href="{% url 'admin:index' %}fineants/transaction/add">hinzufügen</a>.
-  </p>
+  {% if transactions %}
+    <p>
+      Neue Transaktion <a href="{% url 'admin:index' %}fineants/transaction/add">hinzufügen</a>.
+    </p>
+  {% endif %}
 
 {% endblock %}
