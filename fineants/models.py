@@ -9,4 +9,5 @@ class Transaction(models.Model):
     creditor = models.ForeignKey(User, verbose_name="Creditor", related_name="Creditor")
     debitors = models.ManyToManyField(User, verbose_name="Debitors", related_name="Debitors")
     amount = models.FloatField("Amount", blank=False)
+    description = models.TextField("Description", blank=True)
     created = models.DateTimeField('Created', default=datetime.now)
