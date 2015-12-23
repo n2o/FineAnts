@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block heading %}
+  <h1>Transaktionen</h1>
+{% endblock %}
+
+{% block content %}
+  {% for transaction in transactions %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <div class="row">
+            <div class="col-md-8">
+              {{ transaction.title }}, organisiert von {{ transaction.creditor }}
+            </div>
+            <div class="col-md-4 text-right">
+              {{ transaction.created }}
+            </div>
+          </div>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          Betrag: {{ transaction.amount }}
+        </p>
+        <p>
+          {{ transaction.description }}
+        </p>
+
+        <h4>Beteiligt</h4>
+        <ul>
+          {% for debitor in transaction.debitors.all %}
+            <li>
+              {{ debitor }}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if user.is_superuser %}
+          <p class="text-muted">
+            <a href="{% url 'admin:index' %}fineants/transaction/{{ transaction.id }}/change" class="text-muted">bearbeiten</a>
+            <a href="{% url 'admin:index' %}fineants/transaction/{{ entry.id }}/delete" class="text-muted">löschen</a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock %}
