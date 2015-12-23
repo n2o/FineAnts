@@ -6,7 +6,7 @@ class TransactionAdmin(admin.ModelAdmin):
     list_display = ('title', 'creditor', 'amount', 'created')
     search_fields = ['title', 'creditor', 'amount', 'created']
     fieldsets = [
-        ('General', {'fields': ['title', 'creditor', 'debitors', 'amount']}),
+        ('General', {'fields': ['title', 'creditor', 'debitors', 'amount', 'description']}),
         ('Meta',    {'fields': ['created'], 'classes': ['collapse']}),
     ]
 
