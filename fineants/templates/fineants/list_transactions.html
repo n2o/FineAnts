@@ -44,6 +44,14 @@
         {% endif %}
       </div>
     </div>
+  {% empty %}
+    <p>
+      Bisher wurden keine Transaktionen eingetragen. Möchtest du das <a href="{% url 'admin:index' %}fineants/transaction/add">ändern</a>?
+    </p>
   {% endfor %}
+
+  <p>
+    Neue Transaktion <a href="{% url 'admin:index' %}fineants/transaction/add">hinzufügen</a>.
+  </p>
 
 {% endblock %}
