@@ -48,6 +48,13 @@ Create a superuser (= administrator) for your database:
 $ python manage.py createsuperuser
 ```
 
+#### Migrations
+On each model change of the database, django creates a migration. To apply these
+migrations, use:
+```bash
+$ python manage.py migrate
+```
+
 ### Start the application
 The steps above are only necessary, if you have not set up your own database yet. Start the integrated webserver this way:
 
